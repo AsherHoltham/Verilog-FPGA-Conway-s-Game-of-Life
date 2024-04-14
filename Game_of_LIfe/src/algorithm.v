@@ -1,4 +1,3 @@
-`include "global_variables.vh"
 `include "environment.vh"
 
 module algorithm 
