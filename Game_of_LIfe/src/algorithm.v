@@ -19,7 +19,7 @@ module algorithm
 
     for(integer i = 0; i <= 15; i = i + 1){
         for(integer j = 0; j <= 15; j = j + 1){
-            for(integer n = 0; n <= 0; n = n + 1){
+            for(integer n = 0; n <= 7; n = n + 1){
                 integer i_new = i + n_yaxis[n];
                 integer j_new = j + n_xaxis[n];
                 if(i_new == -1){
@@ -28,6 +28,13 @@ module algorithm
                 if(j_new == -1){
                     j_new = 15;
                 }
+                if(i_new == 16){
+                    i_new = 0;
+                }
+                if(j_new == 16){
+                    j_new = 0;
+                }
+
                 if(input_environment[i_new][j_new] == 1){
                     neighbor_cnt = neighbor_cnt + 1;
                 }
