@@ -9,8 +9,8 @@ Any live cell with more than three live neighbors dies, as if by overpopulation.
 Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 
 ## When alive, this is what a cell in our game will look like:
-![alt text](https://github.com/AsherHoltham/Life_Nexys4/tree/main/README.md_supplements/node.jpg?raw=true)
+![Cell Image](https://github.com/AsherHoltham/Life_Nexys4/tree/main/README.md_supplements/node.jpg)
 
 ## State Machine:
 
-![alt text](https://github.com/AsherHoltham/Life_Nexys4/tree/main/README.md_supplements/Game_of_Life_Nexys4_State_Diagram.jpg?raw=true)
+![state machine diagram](https://github.com/AsherHoltham/Life_Nexys4/tree/main/README.md_supplements/Game_of_Life_Nexys4_State_Diagram.jpg)
