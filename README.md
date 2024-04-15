@@ -12,8 +12,8 @@ Conway's Game of Life is a cellular automaton devised by mathematician John Hort
 4. Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 
 ## When alive, this is what a cell in our game will look like:
-![Cell Image](https://raw.githubusercontent.com/AsherHoltham/Life_Nexys4/tree/main/README.md_supplements/node.jpg)
+![Cell Image](https://github.com/AsherHoltham/Life_Nexys4/tree/main/README.md_supplements/node.jpg)
 
 ## State Machine:
 
-![state machine diagram](https://raw.githubusercontent.com/AsherHoltham/Life_Nexys4/tree/main/README.md_supplements/Game_of_Life_Nexys4_State_Diagram.jpg)
+![state machine diagram](https://github.com/AsherHoltham/Life_Nexys4/tree/main/README.md_supplements/Game_of_Life_Nexys4_State_Diagram.jpg)
