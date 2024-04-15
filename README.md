@@ -18,7 +18,7 @@ Our game takes place on a 16 by 16 grid of cells, which can be alive or dead. Ce
 
 4. Any dead cell with exactly three live neighbors becomes a live cell, as if by reproduction.
 
-# Nexys4 board Verilog Implementation Project Details
+# Asher Holtham's Nexys4 board Verilog Implementation Project Details
 
 ## When alive, this is what a cell in our game will look like:
 ![Cell Image](README.md_supplements/node.jpg)
