@@ -1,4 +1,4 @@
-# **Conways Game of Life**
+# **Conway's Game of Life**
 
 Conway's Game of Life is a cellular automaton devised by mathematician John Horton Conway. 
 
