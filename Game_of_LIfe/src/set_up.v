@@ -2,8 +2,8 @@ module set_up
     (
         input integer death_cnt;
         input integer birth_cnt;
-        input environment_t input_environment, 
-        output environment_t output_engironment
+        input reg[0:0] input_board[15:0][15:0], 
+        output reg[0:0] output_board[15:0][15:0]
     );
 
 
