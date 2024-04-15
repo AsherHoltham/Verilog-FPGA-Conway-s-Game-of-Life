@@ -13,8 +13,8 @@ module algorithm
     if(enable)
     begin
         integer neighbor_cnt = 0;
-        integer birth_cnt_tmp =0;
-        integer death_cnt_tmp =0;
+        integer birth_cnt_tmp = 0;
+        integer death_cnt_tmp = 0;
         integer deltaY[7:0] = {1, 1, 1, -1, -1, -1, 0, 0, 0};
         integer deltaX[7:0] = {1, 0, -1, 1, 0, -1, 1, 0, -1};
         reg[0:0] internal_board[15:0][15:0];

@@ -23,7 +23,7 @@ module set_up
             end
             if((BtnU) && (I > 0)) 
                 I <= I - 1;
-            if((BtnD) && (row_index < 15)) 
+            if((BtnD) && (I < 15)) 
                 I <= I + 1;
         end
     end

@@ -10,28 +10,31 @@ module Game_of_Life_machine_top
     (   
         ClkPort,
         BtnL, BtnR, BtnU, BtnD, BtnC, 
-        Sw15, Sw14, Sw13, Sw12, Sw11, Sw10, Sw9, Sw8, Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0, // 16  switches
+        Sw15, Sw14, Sw13, Sw12, Sw11, Sw10, Sw9, Sw8, Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0,
         reg[0:0] board[15:0][15:0],
         generation_cnt, death_cnt, birth_cnt, I
 	);
 
 
 	/*  INPUTS */
-	// Clock & I/O
-	input ClkPort;	
+	input ClkPort;
+
 	input BtnL, BtnR, BtnU, BtnD, BtnC, Sw15, Sw14, Sw13, Sw12, Sw11, Sw10, Sw9, Sw8, Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0;	
-	
+	/*  INPUTS */
+
 	/*  OUTPUTS */
     output reg[0:0] board[15:0][15:0];
+
     output integer generation_cnt;
     output integer death_cnt;
     output integer birth_cnt;
     output integer I;
+    /*  OUTPUTS */
 
-    /* INTERNAL VARIABLES */
+    /* INTERNAL SIGNALS */
     wire reset;
     wire[3:0] enable;
-    reg[3:0] state;
+    reg[3:0] state = 4'b0000;
 
     localparam
         INI	= 4'b0001,
@@ -41,7 +44,7 @@ module Game_of_Life_machine_top
 
     assign reset = BtnL;
     assign enable = state;
-    state = 4'b0000;
+    /* INTERNAL SIGNALS */
 
     /* MODULES */
     init initializer(
@@ -69,10 +72,12 @@ module Game_of_Life_machine_top
         .birth_cnt(brith_cnt);
         .generation_cnt(generation_cnt);
         .output_board(board));
+    /* MODULES */
 
+    /* MACHINE */
     always @(posedge ClkPort, posedge reset) 
     begin
-        if (reset)
+        if (reset || (state == 4'0000))
             state <= INI;
         else
         begin
@@ -91,4 +96,5 @@ module Game_of_Life_machine_top
             endcase
         end 
     end
+    /* MACHINE */
 endmodule
