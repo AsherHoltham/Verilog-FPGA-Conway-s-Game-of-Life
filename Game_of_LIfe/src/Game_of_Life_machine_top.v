@@ -9,7 +9,7 @@
 module Game_of_Life_machine_top 
     (   
         ClkPort,
-        BtnL, BtnR, BTnU, BTnD, BtnC, 
+        BtnL, BtnR, BtnU, BtnD, BtnC, 
         Sw15, Sw14, Sw13, Sw12, Sw11, Sw10, Sw9, Sw8, Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0, // 16  switches
         reg[0:0] board[15:0][15:0],
         generation_cnt, death_cnt, birth_cnt, I
@@ -19,7 +19,7 @@ module Game_of_Life_machine_top
 	/*  INPUTS */
 	// Clock & I/O
 	input ClkPort;	
-	input BtnL, BtnR, BTnU, BTnD, BtnC, Sw15, Sw14, Sw13, Sw12, Sw11, Sw10, Sw9, Sw8, Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0;	
+	input BtnL, BtnR, BtnU, BtnD, BtnC, Sw15, Sw14, Sw13, Sw12, Sw11, Sw10, Sw9, Sw8, Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0;	
 	
 	/*  OUTPUTS */
     output reg[0:0] board[15:0][15:0];
@@ -54,7 +54,7 @@ module Game_of_Life_machine_top
     set_up set_up_machine(
         .clk(ClkPort),
         .enable(enable[1]),
-        .BTnU(BTnU), .BTnD(BTnD), .BtnC(BtnC),
+        .BtnU(BtnU), .BtnD(BtnD), .BtnC(BtnC),
         .Sw15(Sw15), .Sw14(Sw14), .Sw13(Sw13), .Sw12(Sw12), 
         .Sw11(Sw11), .Sw10(Sw10), .Sw9(Sw9), .Sw8(Sw8), 
         .Sw7(Sw7), .Sw6(Sw6), .Sw5(Sw5), .Sw4(Sw4), 

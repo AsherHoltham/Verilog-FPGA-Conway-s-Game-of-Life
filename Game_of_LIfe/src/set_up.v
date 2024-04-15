@@ -2,7 +2,7 @@ module set_up
     (
         input clk,
         input enable,
-        input BTnU, BTnD, BtnC, 
+        input BtnU, BtnD, BtnC, 
 		input Sw15, Sw14, Sw13, Sw12, Sw11, Sw10, Sw9, Sw8, Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0,
         output integer I,
         output reg[0:0] output_board[15:0][15:0]
