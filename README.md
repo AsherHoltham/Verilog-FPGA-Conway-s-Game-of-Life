@@ -24,6 +24,12 @@ Our game takes place on a 16 by 16 grid of cells, which can be alive or dead. Ce
 ![Cell Image](README.md_supplements/node.jpg)
 
 - _Portrait photo of USC's Prof. Gandhi Puvvada_
+
+```
+To scale for the 480p Nexys4 VGA output each cell is 28 by 28 pixels.
+```
+![Sclaed Cell Image](README.md_supplements/cell_used.jpg)
+
 ## EE354 State Diagram:
 
 ![state machine diagram](README.md_supplements/Game_of_Life_Nexys4_State_Diagram.jpg)
