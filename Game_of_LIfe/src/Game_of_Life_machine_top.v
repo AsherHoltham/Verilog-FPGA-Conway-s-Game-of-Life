@@ -8,9 +8,9 @@
 
 module Game_of_Life_machine_top 
     (   
-        ClkPort,          // the 100 MHz incoming clock signal
-		BtnL, BtnR, BTnU, BTnD, BtnC, 
-		Sw15, Sw14, Sw13, Sw12, Sw11, Sw10, Sw9, Sw8, Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0, // 16  switches
+        ClkPort,
+        BtnL, BtnR, BTnU, BTnD, BtnC, 
+        Sw15, Sw14, Sw13, Sw12, Sw11, Sw10, Sw9, Sw8, Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0, // 16  switches
         reg[0:0] board[15:0][15:0],
         generation_cnt, death_cnt, birth_cnt, I
 	);
