@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 module set_up 
     (
-        input wire[31:0] clk,
+        input clk,
         input enable,
         input BtnU, BtnD, BtnC, 
         input wire [15:0] cell_inputs,
@@ -12,7 +12,7 @@ module set_up
     reg[3:0] I = 0;
     reg[7:0] starting_I = 0;
 
-    always@(posedge clk[15])
+    always@(posedge clk)
     begin
         starting_I = I * 16;
         if(enable)

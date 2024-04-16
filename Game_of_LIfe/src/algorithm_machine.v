@@ -4,9 +4,8 @@
 module algorithm_machine
     (
         input clk, 
+        input reset,
         input enable,
-        input wire[31:0] death_cnt_imp,
-        input wire[31:0] birth_cnt_imp,
         input reg[255:0] board
         output reg[255:0] output_board,
         output reg[31:0] death_cnt,
@@ -17,7 +16,7 @@ module algorithm_machine
     /* INTERNAL */
     reg[3:0] neighbor_cnt;
     reg[255:0] internal_board;
-    reg[8:0] index;
+    integer index;
     reg past_cell_state;
 
     reg TL;
@@ -37,43 +36,59 @@ module algorithm_machine
         past_cell_state = board[0];
     end
 
-    always @(posedge clk) begin
-        if(enable) begin
-            for(index = 0; index < 256; index = index + 1)
-            begin
-                past_cell_state <= board[index];
-                neighbor_cnt = 0;
-                TL = index -17;
-                T = index - 16;
-                TR = index - 15;
-                R = index - 1;
-                L = index + 1;
-                BL = index + 15;
-                B = index + 16;
-                BR = index + 17;
+    always @(posedge clk, reset) begin
+        if (reset) begin
+            neighbor_cnt = 0;
+            internal_board = 0;
+            index = 0;
+            past_cell_state = board[0];
+            TL = 0;
+            T = 0;
+            TR = 0;
+            R = 0;
+            L = 0;
+            BL = 0;
+            B = 0;
+            BR = 0;
+        end
+        else if(clk) begin
+            if(enable) begin
+                for(index = 0; index < 256; index = index + 1)
+                begin
+                    past_cell_state = board[index];
+                    neighbor_cnt = 0;
+                    TL = index -17;
+                    T = index - 16;
+                    TR = index - 15;
+                    R = index - 1;
+                    L = index + 1;
+                    BL = index + 15;
+                    B = index + 16;
+                    BR = index + 17;
 
-                if(board[TL] == 1'b1) neighbor_cnt = neighbor_cnt + 1;
-                if(board[T] == 1'b1) neighbor_cnt = neighbor_cnt + 1;
-                if(board[TR] == 1'b1) neighbor_cnt = neighbor_cnt + 1;
-                if(board[R] == 1'b1) neighbor_cnt = neighbor_cnt + 1;
-                if(board[L] == 1'b1) neighbor_cnt = neighbor_cnt + 1;
-                if(board[BL] == 1'b1) neighbor_cnt = neighbor_cnt + 1;
-                if(board[B] == 1'b1) neighbor_cnt = neighbor_cnt + 1;
-                if(board[BR] == 1'b1) neighbor_cnt = neighbor_cnt + 1;
+                    if(board[TL] == 1'b1) neighbor_cnt = neighbor_cnt + 1;
+                    if(board[T] == 1'b1) neighbor_cnt = neighbor_cnt + 1;
+                    if(board[TR] == 1'b1) neighbor_cnt = neighbor_cnt + 1;
+                    if(board[R] == 1'b1) neighbor_cnt = neighbor_cnt + 1;
+                    if(board[L] == 1'b1) neighbor_cnt = neighbor_cnt + 1;
+                    if(board[BL] == 1'b1) neighbor_cnt = neighbor_cnt + 1;
+                    if(board[B] == 1'b1) neighbor_cnt = neighbor_cnt + 1;
+                    if(board[BR] == 1'b1) neighbor_cnt = neighbor_cnt + 1;
 
-                if (past_cell_state == 1'b1 && (neighbor_cnt == 2 || neighbor_cnt == 3)) begin
-                    internal_board[index] <= 1'b1;
-                end else if (past_cell_state == 1'b1 && (neighbor_cnt < 2 || neighbor_cnt > 3)) begin
-                    internal_board[index] <= 1'b0;
-                    death_cnt <= death_cnt_imp + 1;
-                end else if (past_cell_state == 1'b0 && neighbor_cnt == 3) begin
-                    internal_board[index] <= 1'b1;
-                    birth_cnt <= birth_cnt_imp + 1;
-                end else begin
-                    internal_board[index] <= past_cell_state;
+                    if (past_cell_state == 1'b1 && (neighbor_cnt == 2 || neighbor_cnt == 3)) begin
+                        internal_board[index] = 1'b1;
+                    end else if (past_cell_state == 1'b1 && (neighbor_cnt < 2 || neighbor_cnt > 3)) begin
+                        internal_board[index] = 1'b0;
+                        death_cnt <= death_cnt + 1;
+                    end else if (past_cell_state == 1'b0 && neighbor_cnt == 3) begin
+                        internal_board[index] = 1'b1;
+                        birth_cnt <= birth_cnt + 1;
+                    end else begin
+                        internal_board[index] = past_cell_state;
+                    end
                 end
-            end 
-            output_board <= internal_board;
+                output_board <= internal_board;
+            end
         end
     end
 endmodule
