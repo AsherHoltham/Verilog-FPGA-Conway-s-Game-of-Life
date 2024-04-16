@@ -2,9 +2,8 @@
 
 module Births_Generation_output(
 	input clk,
-	input[15:0] births,
 	input[15:0] generation,
-	output reg [7:0] anode,
+	output reg [3:0] anode,
 	output reg [6:0] ssdOut	
     );
 	 
@@ -21,37 +20,21 @@ module Births_Generation_output(
 	
 	always @ (*)
 	 begin
-		case (LEDCounter)
-		3'b000: begin
-			anode = 8'b01111111;
-			LEDNumber = births/1000;
-				end
-		3'b001: begin
-			anode = 8'b10111111;
-			LEDNumber = (births % 1000)/100;
-				end
-		3'b010: begin
-			anode = 8'b11011111;
-			LEDNumber = ((births % 1000)%100)/10;
-				end
-		3'b011: begin
-			anode = 8'b11101111;
-			LEDNumber = ((births % 1000)%100)%10;
-				end		
-		3'b100: begin
-			anode = 8'b11110111;
+		case (LEDCounter)	
+		2'b00: begin
+			anode = 8'b0111;
 			LEDNumber = generation/1000;
 				end
-		3'b101: begin
-			anode = 8'b11111011;
+		2'b01: begin
+			anode = 8'b1011;
 			LEDNumber = (generation % 1000)/100;
 				end
-		3'b110: begin
-			anode = 8'b11111101;
+		2'b10: begin
+			anode = 8'b1101;
 			LEDNumber = ((generation % 1000)%100)/10;
 				end
-		3'b111: begin
-			anode = 8'b11111110;
+		2'b11: begin
+			anode = 8'b1110;
 			LEDNumber = ((generation % 1000)%100)%10;
 				end	
 		endcase
