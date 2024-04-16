@@ -1,31 +1,30 @@
+`timescale 1ns / 1ps
 module set_up 
     (
-        input clk,
+        input wire[31:0] clk,
         input enable,
         input BtnU, BtnD, BtnC, 
-		input Sw15, Sw14, Sw13, Sw12, Sw11, Sw10, Sw9, Sw8, Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0,
-        output integer I,
-        output reg[0:0] output_board[15:0][15:0]
+        input wire [15:0] cell_inputs,
+        output reg[255:0] output_board
     );
 
-    if(enable)
+
+    reg[3:0] I = 0;
+    reg[7:0] starting_I = 0;
+
+    always@(posedge clk[15])
     begin
-        I = 0;
-        wire[15:0] cell_inputs;
-        always@(posedge clk)
+        starting_I = I * 16;
+        if(enable)
         begin
-            assign cell_inputs = {Sw15, Sw14, Sw13, Sw12 ,Sw11, Sw10, Sw9, Sw8 ,Sw7, Sw6, Sw5, Sw4 ,Sw3, Sw2, Sw1, Sw0};
             if(BtnC)
             begin
-                for(integer i = 0; i <= 15; i = i + 1){
-                    output_board[I][i] <= cell_inputs[i];
-                }
+                output_board[starting_I +:16] <= cell_inputs;
             end
-            if((BtnU) && (I > 0)) 
+            if((BtnU) && (I > 4'b0000)) 
                 I <= I - 1;
-            if((BtnD) && (I < 15)) 
+            if((BtnD) && (I < 4'b1111)) 
                 I <= I + 1;
         end
     end
-
 endmodule
