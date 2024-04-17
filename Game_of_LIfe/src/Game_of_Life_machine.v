@@ -29,7 +29,6 @@ module Game_of_Life_machine
     /*  OUTPUTS */ 
 
     /* INTERNAL SIGNALS */
-    reg[31:0] internal_clock_counter;
     reg[2:0] state;
     wire reset;
 
@@ -46,18 +45,15 @@ module Game_of_Life_machine
     /* INTERNAL SIGNALS */
 
     /* MODULES */
-    array_transfer tran_(.clk(internal_clock_counter[15]), .reset(reset), .select(state), .board_setup(board_set), .board_alrogithm(board_alg), .board_output(board_output));
-    set_up set_(.clk(internal_clock_counter[15]), .reset(reset), .select(state[0]), .BtnU(BtnU), .BtnD(BtnD), .BtnC(BtnC), .cell_inputs(cell_inputs), .board_input(board_output), .board_output(board_set));
-    algorithm algo_(.clk(internal_clock_counter[28]), .reset(reset), .select(state[1]), .board_input(board_output), .board_output(board_alg));
+    array_transfer tran_(.clk(ClkPort), .reset(reset), .select(state), .board_setup(board_set), .board_alrogithm(board_alg), .board_output(board_output));
+    set_up set_(.clk(ClkPort), .reset(reset), .select(state[0]), .BtnU(BtnU), .BtnD(BtnD), .BtnC(BtnC), .cell_inputs(cell_inputs), .board_input(board_output), .board_output(board_set));
+    algorithm algo_(.clk(ClkPort), .reset(reset), .select(state[1]), .board_input(board_output), .board_output(board_alg));
     /* MODULES */
 
     initial 
         state = 3'b000;
-
-    always @(posedge ClkPort)
-        internal_clock_counter <= internal_clock_counter + 1;
     
-    always @(posedge internal_clock_counter[15], posedge reset) 
+    always @(posedge ClkPort, posedge reset) 
     begin
         if (reset)
             board_o <= 0;
@@ -65,14 +61,14 @@ module Game_of_Life_machine
             board_o <= board_output;
     end
 
-    always @(posedge internal_clock_counter[28], posedge reset) 
+    always @(posedge ClkPort, posedge reset) 
     begin
         if (reset)
         begin
             generation_cnt_o <= 0;
             state <= SET;
         end
-        else if(internal_clock_counter[27])
+        else if(ClkPort)
         begin
             case(state)
                 SET:
