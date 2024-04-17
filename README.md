@@ -1,4 +1,4 @@
-# Project Overview
+# FPGA Project Overview
 
 This Verilog FPGA project is an implementation of "Conway's Game of Life." The simulation is intended to be ran on an ARTIX -7 NEXYS4 board. It outputs in 480p to a monitor through a VGA connector. The entire code base was designed in Verilog HDL. User input is taken by the 5 buttons and 16 switches fitted on the NEXYS4 board.
 
