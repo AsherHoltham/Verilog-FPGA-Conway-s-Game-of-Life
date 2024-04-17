@@ -1,3 +1,7 @@
+// Sprite generated from Munir Bshara python script
+
+`timescale 1ns / 1ps
+
 module cell_used_rom
 	(
 		input wire clk,
