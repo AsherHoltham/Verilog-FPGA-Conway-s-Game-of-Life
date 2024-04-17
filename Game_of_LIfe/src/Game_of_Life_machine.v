@@ -35,9 +35,9 @@ module Game_of_Life_machine
 
     assign reset = (BtnL || (state == 3'b000));
 
-    reg [255:0] board_alg;
-    reg [255:0] board_set;
-    reg [255:0] board_output;
+    wire [255:0] board_alg;
+    wire [255:0] board_set;
+    wire [255:0] board_output;
 
     localparam
         SET	= 3'b001,
@@ -46,26 +46,29 @@ module Game_of_Life_machine
     /* INTERNAL SIGNALS */
 
     /* MODULES */
-    array_transfer tran_(.clk(internal_clock_counter[15]), .reset(reset), .select(state), .board_setup(board_set), .board_alrogithm(board_alg), .board_o(board_output));
-    set_up set_(.clk(internal_clock_counter[15]), .reset(reset), .select(state[0]), .BtnU(BtnU), .BtnD(BtnD), .BtnC(BtnC), .cell_inputs(cell_inputs), .input_board(board_output), .board_o(board_set));
-    algorithm algo_(.clk(internal_clock_counter[28]), .reset(reset), .select(state[1]), .input_board(board_output), .board_o(board_alg));
-    output_board out_(.clk(internal_clock_counter[15]),.reset(reset), .board_input(board_output), .board_output(board_o));   
+    array_transfer tran_(.clk(internal_clock_counter[15]), .reset(reset), .select(state), .board_setup(board_set), .board_alrogithm(board_alg), .board_output(board_output));
+    set_up set_(.clk(internal_clock_counter[15]), .reset(reset), .select(state[0]), .BtnU(BtnU), .BtnD(BtnD), .BtnC(BtnC), .cell_inputs(cell_inputs), .board_input(board_output), .board_output(board_set));
+    algorithm algo_(.clk(internal_clock_counter[28]), .reset(reset), .select(state[1]), .board_input(board_output), .board_output(board_alg));
     /* MODULES */
 
-    initial begin 
+    initial 
         state = 3'b000;
-    end
 
     always @(posedge ClkPort)
         internal_clock_counter <= internal_clock_counter + 1;
-        
+    
+    always @(posedge internal_clock_counter[15], posedge reset) 
+    begin
+        if (reset)
+            board_o <= 0;
+        else    
+            board_o <= board_output;
+    end
+
     always @(posedge internal_clock_counter[28], posedge reset) 
     begin
         if (reset)
         begin
-            board_alg <= 0;
-            board_set <= 0;
-            board_output <= 0;
             generation_cnt_o <= 0;
             state <= SET;
         end
