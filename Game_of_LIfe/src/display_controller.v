@@ -39,8 +39,8 @@ module display_controller
 		end
 	end
 		
-	assign row_out = (((vc - 225) % 30));
-	assign col_out = (((vc - 36) % 30));
+	assign row_out = (((vc - 224) % 30));
+	assign col_out = (((vc - 35) % 30));
 
 	assign hSync = (hc < 96) ? 1:0;
 	assign vSync = (vc < 2) ? 1:0;

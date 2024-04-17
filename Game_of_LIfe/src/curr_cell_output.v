@@ -8,8 +8,8 @@ module curr_cell_output
     );
 
     localparam 
-        H_OFFSET = 225;
-        V_OFFSET = 36;
+        H_OFFSET = 224;
+        V_OFFSET = 35;
         CELL_SIZE = 30;
         ROW_SIZE = 16;
 

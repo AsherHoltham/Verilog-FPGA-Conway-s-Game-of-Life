@@ -15,15 +15,15 @@ module Main_machine
 	);
 
 
-	/*  INPUTS */
+	/* INPUTS */
 	input clk;
 	input BtnL, BtnR, BtnU, BtnD, BtnC, Sw15, Sw14, Sw13, Sw12, Sw11, Sw10, Sw9, Sw8, Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0;
-	/*  INPUTS */
+	/* INPUTS */
 
-	/*  OUTPUTS */
+	/* OUTPUTS */
     output reg[255:0] board_o;
     output reg[15:0] generation_cnt_o;
-    /*  OUTPUTS */ 
+    /* OUTPUTS */ 
 
     /* INTERNAL SIGNALS */
     reg[31:0] internal_clock_counter;
