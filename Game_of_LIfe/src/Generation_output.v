@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module Births_Generation_output(
+module Generation_output(
 	input clk,
 	input[15:0] generation,
 	output reg [3:0] anode,
