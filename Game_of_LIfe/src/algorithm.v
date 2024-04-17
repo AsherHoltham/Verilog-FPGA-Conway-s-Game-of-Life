@@ -26,7 +26,7 @@ module algorithm
         if(reset)
             board_output <= 0;
         else if(select) begin
-            index <= 0;
+            index = 0;
             internal_board = 0;
             for(i = 0; i <= 255; i = i + 1) begin
                 num_adj = 0;
