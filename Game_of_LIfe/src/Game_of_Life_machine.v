@@ -6,7 +6,7 @@
 
 `timescale 1ns / 1ps
 
-module game_of_life_machine 
+module Main_machine 
     (   
         clk,
         BtnL, BtnR, BtnU, BtnD, BtnC, 

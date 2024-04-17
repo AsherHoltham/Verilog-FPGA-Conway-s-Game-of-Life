@@ -1,3 +1,5 @@
+// adapted from EE354 Demo Project
+
 `timescale 1ns / 1ps
 
 module ssd_generation_output(
@@ -7,6 +9,7 @@ module ssd_generation_output(
 	output reg [6:0] ssdOut	
     );
 	 
+	
 	reg [20:0] refresh;
 	reg [3:0] LEDNumber;
 	wire [2:0] LEDCounter;
