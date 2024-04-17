@@ -38,7 +38,7 @@ module Game_of_Life
 	// disable mamory ports
 	assign {MemOE, MemWR, RamCS, QuadSpiFlashCS} = 4'b1111;
 
-    Game_of_Life_machine GLmachine (.clk(ClkPort), .BtnL(BtnL), .BtnR(BtnR), .BtnU(BtnU), .BtnD(BtnD), .BtnC(BtnC), 
+    Main_machine GLmachine (.clk(ClkPort), .BtnL(BtnL), .BtnR(BtnR), .BtnU(BtnU), .BtnD(BtnD), .BtnC(BtnC), 
         .Sw15(Sw15), .Sw14(Sw14), .Sw13(Sw13), .Sw12(Sw12), .Sw11(Sw11), .Sw10(Sw10), .Sw9(Sw9), .Sw8(Sw8), .Sw7(Sw7), .Sw6(Sw6), .Sw5(Sw5), .Sw4(Sw4), .Sw3(Sw3), .Sw2(Sw2), .Sw1(Sw1), .Sw0(Sw0),
         .board_o(board), .generation_cnt_o(generation));
 	Births_Generation_output outp(.clk(ClkPort), .generation(generation), .anode(anode), .ssdOut(ssdOut));

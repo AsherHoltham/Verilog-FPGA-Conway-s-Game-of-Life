@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module Generation_output(
+module ssd_generation_output(
 	input clk,
 	input[15:0] generation,
 	output reg [3:0] anode,

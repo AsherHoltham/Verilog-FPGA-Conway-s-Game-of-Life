@@ -6,9 +6,9 @@
 
 `timescale 1ns / 1ps
 
-module Game_of_Life_machine 
+module game_of_life_machine 
     (   
-        ClkPort,
+        clk,
         BtnL, BtnR, BtnU, BtnD, BtnC, 
         Sw15, Sw14, Sw13, Sw12, Sw11, Sw10, Sw9, Sw8, Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0,
         board_o, generation_cnt_o
@@ -16,11 +16,8 @@ module Game_of_Life_machine
 
 
 	/*  INPUTS */
-	input ClkPort;
-	input BtnL, BtnR, BtnU, BtnD, BtnC, Sw15, Sw14, Sw13, Sw12, Sw11, Sw10, Sw9, Sw8, Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0;	
-    
-    wire [15:0] cell_inputs;
-    assign cell_inputs = {Sw15, Sw14, Sw13, Sw12, Sw11, Sw10, Sw9, Sw8, Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0};
+	input clk;
+	input BtnL, BtnR, BtnU, BtnD, BtnC, Sw15, Sw14, Sw13, Sw12, Sw11, Sw10, Sw9, Sw8, Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0;
 	/*  INPUTS */
 
 	/*  OUTPUTS */
@@ -30,15 +27,18 @@ module Game_of_Life_machine
 
     /* INTERNAL SIGNALS */
     reg[31:0] internal_clock_counter;
-    reg[2:0] state;
     wire reset;
-
+    reg[2:0] state;
+    wire [15:0] cell_inputs;
     wire [255:0] board_alg;
     wire [255:0] board_set;
     wire [255:0] board_output;
-
-    assign reset = (BtnL || (state == 3'b000));
     /* INTERNAL SIGNALS */
+
+    /* ASSIGNMENT */
+    assign reset = (BtnL || (state == 3'b000));
+    assign cell_inputs = {Sw15, Sw14, Sw13, Sw12, Sw11, Sw10, Sw9, Sw8, Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0};
+    /* ASSIGNMENT */
 
     /* MODULES */
     array_transfer tran_(.clk(internal_clock_counter[15]), .reset(reset), .select(state), .board_setup(board_set), .board_alrogithm(board_alg), .board_output(board_output));
@@ -56,7 +56,7 @@ module Game_of_Life_machine
     initial 
         state = 3'b000;
 
-    always @(posedge ClkPort)
+    always @(posedge clk)
         internal_clock_counter <= internal_clock_counter + 1;
     
     always @(posedge internal_clock_counter[15], posedge reset) 

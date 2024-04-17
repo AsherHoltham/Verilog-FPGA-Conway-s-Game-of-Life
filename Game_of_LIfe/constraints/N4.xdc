@@ -573,8 +573,8 @@ set_property PACKAGE_PIN B12 [get_ports Vsync]
 #set_property PACKAGE_PIN M14 [get_ports {QspiDB[3]}]				
 	#set_property IOSTANDARD LVCMOS33 [get_ports {QspiDB[3]}]
 #Bank = CONFIG, Pin name = IO_L15N_T2_DQS_DOUT_CSO_B_14,	Sch name = QSPI_CSN
-set_property PACKAGE_PIN L13 [get_ports QuadSpiFlashCS]					
-	set_property IOSTANDARD LVCMOS33 [get_ports QuadSpiFlashCS]
+#AAAAAAAA set_property PACKAGE_PIN L13 [get_ports QuadSpiFlashCS]					
+	#AAAAAAAA set_property IOSTANDARD LVCMOS33 [get_ports QuadSpiFlashCS]
 
 
 
@@ -586,17 +586,18 @@ set_property PACKAGE_PIN L13 [get_ports QuadSpiFlashCS]
 #set_property PACKAGE_PIN T13 [get_ports RamADVn]					
 	#set_property IOSTANDARD LVCMOS33 [get_ports RamADVn]
 #Bank = 14, Pin name = IO_L4P_T0_D04_14,					Sch name = CRAM_CEN
-set_property PACKAGE_PIN L18 [get_ports RamCS]					
-	set_property IOSTANDARD LVCMOS33 [get_ports RamCS]
+#AAAAAAAA set_property PACKAGE_PIN L18 [get_ports RamCS]					
+	#AAAAAAAA set_property IOSTANDARD LVCMOS33 [get_ports RamCS]      
+
 ##Bank = 15, Pin name = IO_L19P_T3_A22_15,					Sch name = CRAM_CRE
 #set_property PACKAGE_PIN J14 [get_ports RamCRE]					
 	#set_property IOSTANDARD LVCMOS33 [get_ports RamCRE]
 #Bank = 15, Pin name = IO_L15P_T2_DQS_15,					Sch name = CRAM_OEN
-set_property PACKAGE_PIN H14 [get_ports MemOE]					
-	set_property IOSTANDARD LVCMOS33 [get_ports MemOE]
+#AAAAAAAA  set_property PACKAGE_PIN H14 [get_ports MemOE]					
+	#AAAAAAAA set_property IOSTANDARD LVCMOS33 [get_ports MemOE]
 #Bank = 14, Pin name = IO_0_14,								Sch name = CRAM_WEN
-set_property PACKAGE_PIN R11 [get_ports MemWR]					
-	set_property IOSTANDARD LVCMOS33 [get_ports MemWR]
+#AAAAAAAA set_property PACKAGE_PIN R11 [get_ports MemWR]					
+	#AAAAAAAA set_property IOSTANDARD LVCMOS33 [get_ports MemWR]
 ##Bank = 15, Pin name = IO_L24N_T3_RS0_15,					Sch name = CRAM_LBN
 #set_property PACKAGE_PIN J15 [get_ports RamLBn]					
 	#set_property IOSTANDARD LVCMOS33 [get_ports RamLBn]

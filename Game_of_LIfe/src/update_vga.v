@@ -1,4 +1,4 @@
-module update_board_output 
+module update_vga
     (
 
     );
