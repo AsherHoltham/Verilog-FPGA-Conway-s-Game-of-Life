@@ -2,7 +2,7 @@
 
 `timescale 1ns / 1ps
 
-module cell_used_rom
+module cell_rom
 	(
 		input wire clk,
 		input wire [4:0] row,
@@ -620,7 +620,6 @@ module cell_used_rom
 		if(({row_reg, col_reg}==10'b1101111000)) color_data = 12'b001000100011;
 		if(({row_reg, col_reg}==10'b1101111001)) color_data = 12'b001000100010;
 		if(({row_reg, col_reg}==10'b1101111010)) color_data = 12'b001000100011;
-
 		if(({row_reg, col_reg}>=10'b1101111011) && ({row_reg, col_reg}<=10'b1101111011)) color_data = 12'b000100100010;
 	end
 endmodule

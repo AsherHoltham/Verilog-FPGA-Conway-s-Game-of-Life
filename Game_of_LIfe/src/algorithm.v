@@ -10,7 +10,7 @@ module algorithm
     integer i;
     integer j;
     reg[3:0] num_adj;
-    reg[255:0] index;
+    reg[7:0] index;
     reg[255:0] internal_board;
     reg[7:0] adjacency_matrix[3:0];
     reg past_cell_state;

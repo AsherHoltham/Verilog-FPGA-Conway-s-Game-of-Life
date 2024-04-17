@@ -24,15 +24,19 @@ module Game_of_Life
 	/* OUTPUTS */
 
     /* INTERNAL SIGNALS */
-    wire bright;
-	wire[9:0] hc, vc;
-
     wire[15:0] generation;
     wire[255:0] board;
+
+    wire bright;
+	wire[9:0] hc, vc;
 
 	wire [6:0] ssdOut;
 	wire [3:0] anode;
 	wire [11:0] rgb;
+	wire [11:0] cell_rgb;
+	wire [4:0] cell_row;
+	wire [4:0] cell_col;
+	wire cell_state;
     /* INTERNAL SIGNALS */
 
     /* ASSIGNMENTS */
@@ -48,8 +52,10 @@ module Game_of_Life
 	/* MODULES */
     game_of_life_machine algo_(.clk(ClkPort), .BtnL(BtnL), .BtnR(BtnR), .BtnU(BtnU), .BtnD(BtnD), .BtnC(BtnC), .Sw15(Sw15), .Sw14(Sw14), .Sw13(Sw13), .Sw12(Sw12), .Sw11(Sw11), .Sw10(Sw10), .Sw9(Sw9), .Sw8(Sw8), .Sw7(Sw7), .Sw6(Sw6), .Sw5(Sw5), .Sw4(Sw4), .Sw3(Sw3), .Sw2(Sw2), .Sw1(Sw1), .Sw0(Sw0), .board_o(board), .generation_cnt_o(generation));
 	ssd_generation_output outp_(.clk(ClkPort), .generation(generation), .anode(anode), .ssdOut(ssdOut));
-	display_controller dc_(.clk(ClkPort), .hSync(hSync), .vSync(vSync), .bright(bright), .hCount(hc), .vCount(vc));
-	update_vga vga_(.clk(ClkPort), /* vars */);
+	display_controller dc_(.clk(ClkPort), .hSync(hSync), .vSync(vSync), .bright(bright), .row(cell_row), .col(cell_col), .hc(hc), .vc(vc));
+	cell_rom cell_(.clk(ClkPort), .row(cell_row), .col(cell_col), .color_data(cell_rgb));
+	curr_cell_output curr_(.clk(ClkPort), .hc(hc), .vc(vc), .board(board), .cell_state(cell_state));
+	update_vga vga_(.bright(bright), .cell_state(cell_state), .cell_rgb(cell_rgb), .rgb(rgb););
     /* MODULES */
 
 endmodule
