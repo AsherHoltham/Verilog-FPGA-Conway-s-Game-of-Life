@@ -13,14 +13,12 @@ module display_controller
 	
 	reg pulse;
 	reg clk25;
-	wire[4:0] row_out;
-	wire[4:0] col_out;
-		
+
 	initial begin
 		clk25 = 0;
 		pulse = 0;
 	end
-	
+
 	always @(posedge clk)
 		pulse = ~pulse;
 
@@ -39,27 +37,20 @@ module display_controller
 		end
 	end
 		
-	assign row_out = (((vc - 224) % 30));
-	assign col_out = (((vc - 35) % 30));
-
-	assign hSync = (hc < 96) ? 1:0;
-	assign vSync = (vc < 2) ? 1:0;
-		
 	always @(posedge clk25) begin
-    	if (((hc < 225) && (hc > 702) && (vc < 36) && (vc > 513))) begin
-        	bright <= 0;
-        	row <= 0;
-        	col <= 0;
-    	end else if (hc > 252) begin
-        	if ((((hc - 253) % 30) == 0) || (((hc - 254) % 30) == 0)) begin
-            	bright <= 0;
-            	row <= 0;
-            	col <= 0;
-        	end
-    	end else begin
-        	bright <= 1;
-        	row <= row_out;
-        	col <= col_out;
-    	end
+		if ((hc > 252 && hc < 675) && ((hc - 253) % 30 == 0 || (hc - 254) % 30 == 0))
+		  bright <= 0;
+		else if ((vc > 63 && vc < 486) && ((vc - 64) % 30 == 0 || (vc - 65) % 30 == 0))
+		  bright <= 0;
+		else if(hc > 224 && hc < 703 && vc > 35 && vc < 514)
+		  bright <= 1;
+		else 
+		  bright <= 0;
 	end
+
+	assign row = (bright) ? (((vc - 224) % 30)):0;
+	assign col = (bright) ? (((hc - 35) % 30)):0; 
+	
+	assign hSync = (hc < 96) ? 1:0;
+	assign vSync = (vc < 2) ? 1:0;	
 endmodule

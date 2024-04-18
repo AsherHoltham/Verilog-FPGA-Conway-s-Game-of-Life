@@ -1,9 +1,9 @@
 module update_vga
     (
-        input bright;
-        input cell_state;
-        input wire[11:0] cell_rgb;
-        output reg[11:0] rgb;
+        input bright,
+        input cell_state,
+        input wire[11:0] cell_rgb,
+        output reg[11:0] rgb
     );
     
 	parameter LIGHT_GREY = 12'b1011_1011_1011;

@@ -7,11 +7,10 @@ module curr_cell_output
         output reg cell_state
     );
 
-    localparam 
-        H_OFFSET = 224;
-        V_OFFSET = 35;
-        CELL_SIZE = 30;
-        ROW_SIZE = 16;
+    localparam H_OFFSET = 224;
+    localparam  V_OFFSET = 35;
+    localparam CELL_SIZE = 30;
+    localparam  ROW_SIZE = 16;
 
     wire[7:0] index;
     assign index = (((vc - V_OFFSET) / CELL_SIZE) * ROW_SIZE) + ((hc - H_OFFSET) / CELL_SIZE);
@@ -19,5 +18,4 @@ module curr_cell_output
     always @(posedge clk) begin
         cell_state <= board[index];
     end
-
 endmodule
