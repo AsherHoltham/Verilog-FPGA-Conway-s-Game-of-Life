@@ -59,7 +59,7 @@ module Main_machine
     always @(posedge clk)
         internal_clock_counter <= internal_clock_counter + 1;
     
-    always @(posedge internal_clock_counter[15], posedge reset) 
+    always @(posedge internal_clock_counter[25], posedge reset) 
     begin
         if (reset)
             board_o <= 0;
