@@ -5,8 +5,8 @@ module display_controller
 	input clk,
 	output hSync, vSync,
 	output reg bright,
-	output reg[4:0] row,
-	output reg[4:0] col,
+	output wire[4:0] row,
+	output wire[4:0] col,
 	output reg[9:0] hc, 
 	output reg [9:0] vc
 	);
@@ -48,8 +48,8 @@ module display_controller
 		  bright <= 0;
 	end
 
-	assign row = (bright) ? (((vc - 224) % 30)):0;
-	assign col = (bright) ? (((hc - 35) % 30)):0; 
+	assign row = (bright) ? (((vc - 225) % 30)):0;
+	assign col = (bright) ? (((hc - 36) % 30)):0; 
 	
 	assign hSync = (hc < 96) ? 1:0;
 	assign vSync = (vc < 2) ? 1:0;	

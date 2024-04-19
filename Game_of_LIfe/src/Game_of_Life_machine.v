@@ -41,9 +41,9 @@ module Main_machine
     /* ASSIGNMENT */
 
     /* MODULES */
-    array_transfer tran_(.clk(internal_clock_counter[15]), .reset(reset), .select(state), .board_setup(board_set), .board_alrogithm(board_alg), .board_output(board_output));
+    array_transfer tran_(.clk(internal_clock_counter[25]), .reset(reset), .select(state), .board_setup(board_set), .board_alrogithm(board_alg), .board_output(board_output));
     set_up set_(.clk(internal_clock_counter[15]), .reset(reset), .select(state[0]), .BtnU(BtnU), .BtnD(BtnD), .BtnC(BtnC), .cell_inputs(cell_inputs), .board_input(board_output), .board_output(board_set));
-    algorithm algo_(.clk(internal_clock_counter[28]), .reset(reset), .select(state[1]), .board_input(board_output), .board_output(board_alg));
+    algorithm algo_(.clk(internal_clock_counter[25]), .reset(reset), .select(state[1]), .board_input(board_output), .board_output(board_alg));
     /* MODULES */
 
     /* PARAMETERS */
@@ -67,14 +67,14 @@ module Main_machine
             board_o <= board_output;
     end
 
-    always @(posedge internal_clock_counter[28], posedge reset) 
+    always @(posedge internal_clock_counter[25], posedge reset) 
     begin
         if (reset)
         begin
             generation_cnt_o <= 0;
             state <= SET;
         end
-        else if(internal_clock_counter[28])
+        else if(internal_clock_counter[25])
         begin
             case(state)
                 SET:

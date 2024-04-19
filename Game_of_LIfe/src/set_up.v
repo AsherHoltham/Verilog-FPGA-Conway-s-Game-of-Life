@@ -9,7 +9,7 @@ module set_up
         output reg[255:0] board_output
     ); 
 
-    reg[7:0] index;
+    reg[3:0] index;
 
     initial
         index = 0;
@@ -23,10 +23,10 @@ module set_up
         else if(select) begin
             board_output <= board_input;
             if(BtnC)
-                board_output[(index * 16) +:16] <= cell_inputs;
-            if((BtnU) && (index > 0)) 
+                board_output[(index * 16) + : 16] <= cell_inputs;
+            if(BtnU) 
                 index <= index - 1;
-            if((BtnD) && (index < 15)) 
+            if(BtnD) 
                 index <= index + 1;
         end
     end
