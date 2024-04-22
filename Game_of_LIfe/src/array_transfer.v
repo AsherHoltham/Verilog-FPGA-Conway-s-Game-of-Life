@@ -10,12 +10,13 @@ module array_transfer
         output reg[255:0] board_output
     ); 
 
+
     always @(posedge clk, posedge reset) begin
         if(reset)
             board_output <= 0;
         else if(select[0]) 
             board_output <= board_setup;
-        else 
+        else
             board_output <= board_alrogithm;
     end
 endmodule

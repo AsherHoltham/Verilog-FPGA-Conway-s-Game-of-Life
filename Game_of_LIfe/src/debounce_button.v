@@ -6,8 +6,8 @@ module debounce_button (
 
     parameter INTERVAL = 1000000;
 
-    reg [20:0] cnt = 0;              
-    reg sampled_BtnN = 0;              
+    reg [20:0] cnt;              
+    reg sampled_BtnN;              
 
     initial begin
         sampled_BtnN = 0;

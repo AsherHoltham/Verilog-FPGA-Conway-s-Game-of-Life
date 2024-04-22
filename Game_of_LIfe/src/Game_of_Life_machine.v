@@ -37,12 +37,11 @@ module Main_machine
 
     /* ASSIGNMENT */
     assign reset = (BtnL || (state == 3'b000));
-    assign cell_inputs = {Sw15, Sw14, Sw13, Sw12, Sw11, Sw10, Sw9, Sw8, Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0};
-    /* ASSIGNMENT */
+    assign cell_inputs = {Sw0, Sw1, Sw2, Sw3, Sw4, Sw5, Sw6, Sw7, Sw8, Sw9, Sw10, Sw11, Sw12, Sw13, Sw14, Sw15};    /* ASSIGNMENT */
 
     /* MODULES */
-    array_transfer tran_(.clk(internal_clock_counter[25]), .reset(reset), .select(state), .board_setup(board_set), .board_alrogithm(board_alg), .board_output(board_output));
-    set_up set_(.clk(internal_clock_counter[15]), .reset(reset), .select(state[0]), .BtnU(BtnU), .BtnD(BtnD), .BtnC(BtnC), .cell_inputs(cell_inputs), .board_input(board_output), .board_output(board_set));
+    array_transfer tran_(.clk(internal_clock_counter[17]), .reset(reset), .select(state), .board_setup(board_set), .board_alrogithm(board_alg), .board_output(board_output));
+    set_up set_(.clk(internal_clock_counter[17]), .reset(reset), .select(state[0]), .BtnU(BtnU), .BtnD(BtnD), .BtnC(BtnC), .cell_inputs(cell_inputs), .board_input(board_output), .board_output(board_set));
     algorithm algo_(.clk(internal_clock_counter[25]), .reset(reset), .select(state[1]), .board_input(board_output), .board_output(board_alg));
     /* MODULES */
 
@@ -61,31 +60,30 @@ module Main_machine
     
     always @(posedge internal_clock_counter[25], posedge reset) 
     begin
-        if (reset)
+        if (reset) begin
             board_o <= 0;
-        else    
+            generation_cnt_o <= 0;
+        end 
+        else if(state == ALG) begin   
             board_o <= board_output;
+            generation_cnt_o <= generation_cnt_o + 1; 
+            
+        end else if(state == SET) 
+            board_o <= board_output; 
     end
 
-    always @(posedge internal_clock_counter[25], posedge reset) 
+    always @(posedge BtnR, posedge reset) 
     begin
-        if (reset)
-        begin
-            generation_cnt_o <= 0;
+        if(reset)
             state <= SET;
-        end
-        else if(internal_clock_counter[25])
-        begin
+        else begin
             case(state)
                 SET:
-                    if(BtnR) state <= ALG;
+                    state <= ALG;
                 ALG:
-                begin
-                    if(BtnR) state <= STOP;
-                    generation_cnt_o <= generation_cnt_o + 1;
-                end
+                    state <= STOP;
                 STOP:
-                    if(BtnR) state <= ALG;
+                    state <= ALG;
             endcase
         end
     end

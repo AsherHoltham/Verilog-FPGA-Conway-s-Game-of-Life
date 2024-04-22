@@ -23,7 +23,7 @@ module set_up
         else if(select) begin
             board_output <= board_input;
             if(BtnC)
-                board_output[(index * 16) + : 16] <= cell_inputs;
+                board_output[(index * 16)+:16] <= cell_inputs;
             if(BtnU) 
                 index <= index - 1;
             if(BtnD) 
