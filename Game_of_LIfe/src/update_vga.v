@@ -6,12 +6,12 @@ module update_vga
         output reg[11:0] rgb
     );
     
-    parameter RED   = 12'b1111_0000_0000;	
+    parameter BLACK = 12'b0000_0000_0000;	
     parameter WHITE = 12'b1111_1111_1111;
 
     always@ (*) begin
     	if (~bright)
-		    rgb = RED;
+		    rgb = BLACK;
 	    else if (cell_state)
 		    rgb = cell_rgb;
 	    else
