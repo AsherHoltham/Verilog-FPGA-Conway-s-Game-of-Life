@@ -1,0 +1,533 @@
+
+*** Running vivado
+    with args -log Game_of_Life.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Game_of_Life.tcl
+
+
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source Game_of_Life.tcl -notrace
+Command: synth_design -top Game_of_Life -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 5000
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1115.984 ; gain = 13.312
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'Game_of_Life' [C:/testp/Game_of_Life_top.v:3]
+INFO: [Synth 8-6157] synthesizing module 'debounce_button' [C:/testp/debounce_button.v:1]
+	Parameter INTERVAL bound to: 1000000 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'debounce_button' (1#1) [C:/testp/debounce_button.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Main_machine' [C:/testp/game_of_life_machine.v:9]
+	Parameter SET bound to: 3'b001 
+	Parameter ALG bound to: 3'b010 
+	Parameter STOP bound to: 3'b100 
+INFO: [Synth 8-6157] synthesizing module 'array_transfer' [C:/testp/array_transfer.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'array_transfer' (2#1) [C:/testp/array_transfer.v:3]
+INFO: [Synth 8-6157] synthesizing module 'set_up' [C:/testp/set_up.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'set_up' (3#1) [C:/testp/set_up.v:1]
+INFO: [Synth 8-6157] synthesizing module 'algorithm' [C:/testp/algorithm.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'algorithm' (4#1) [C:/testp/algorithm.v:1]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/testp/game_of_life_machine.v:80]
+INFO: [Synth 8-6155] done synthesizing module 'Main_machine' (5#1) [C:/testp/game_of_life_machine.v:9]
+INFO: [Synth 8-6157] synthesizing module 'ssd_generation_output' [C:/testp/ssd_generation_output.v:5]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/testp/ssd_generation_output.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'ssd_generation_output' (6#1) [C:/testp/ssd_generation_output.v:5]
+INFO: [Synth 8-6157] synthesizing module 'display_controller' [C:/testp/display_controller.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'display_controller' (7#1) [C:/testp/display_controller.v:3]
+INFO: [Synth 8-6157] synthesizing module 'cell_rom' [C:/testp/cell_12_bit_rom.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'cell_rom' (8#1) [C:/testp/cell_12_bit_rom.v:5]
+INFO: [Synth 8-6157] synthesizing module 'curr_cell_output' [C:/testp/curr_cell_output.v:1]
+	Parameter H_OFFSET bound to: 224 - type: integer 
+	Parameter V_OFFSET bound to: 35 - type: integer 
+	Parameter CELL_SIZE bound to: 30 - type: integer 
+	Parameter ROW_SIZE bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'curr_cell_output' (9#1) [C:/testp/curr_cell_output.v:1]
+INFO: [Synth 8-6157] synthesizing module 'update_vga' [C:/testp/update_vga.v:1]
+	Parameter BLACK bound to: 12'b000000000000 
+	Parameter WHITE bound to: 12'b111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'update_vga' (10#1) [C:/testp/update_vga.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Game_of_Life' (11#1) [C:/testp/Game_of_Life_top.v:3]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1329.992 ; gain = 227.320
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1352.898 ; gain = 250.227
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1352.898 ; gain = 250.227
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.903 . Memory (MB): peak = 1352.898 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/testp/N4.xdc]
+Finished Parsing XDC File [C:/testp/N4.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/testp/N4.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Game_of_Life_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/Game_of_Life_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1479.625 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.054 . Memory (MB): peak = 1479.625 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:37 ; elapsed = 00:00:37 . Memory (MB): peak = 1479.625 ; gain = 376.953
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:37 ; elapsed = 00:00:37 . Memory (MB): peak = 1479.625 ; gain = 376.953
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Main_machine'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0001 |                              000
+                     SET |                             0010 |                              001
+                     ALG |                             0100 |                              010
+                    STOP |                             1000 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'Main_machine'
+WARNING: [Synth 8-327] inferring latch for variable 'anode_reg' [C:/testp/ssd_generation_output.v:28]
+WARNING: [Synth 8-327] inferring latch for variable 'LEDNumber_reg' [C:/testp/ssd_generation_output.v:29]
+WARNING: [Synth 8-327] inferring latch for variable 'color_data_reg' [C:/testp/cell_12_bit_rom.v:26]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:50 ; elapsed = 00:00:50 . Memory (MB): peak = 1479.625 ; gain = 376.953
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   32 Bit       Adders := 3     
+	   4 Input   32 Bit       Adders := 15    
+	   5 Input   32 Bit       Adders := 41    
+	   7 Input   32 Bit       Adders := 196   
+	   2 Input   32 Bit       Adders := 10    
+	   2 Input   10 Bit       Adders := 2     
+	   2 Input    4 Bit       Adders := 212   
++---Registers : 
+	              256 Bit    Registers := 4     
+	               10 Bit    Registers := 2     
+	                5 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 14    
++---Muxes : 
+	   2 Input  256 Bit        Muxes := 3     
+	   2 Input   32 Bit        Muxes := 2     
+	   2 Input   12 Bit        Muxes := 309   
+	   5 Input   12 Bit        Muxes := 20    
+	   4 Input   12 Bit        Muxes := 23    
+	  13 Input   12 Bit        Muxes := 3     
+	   6 Input   12 Bit        Muxes := 15    
+	   8 Input   12 Bit        Muxes := 11    
+	  14 Input   12 Bit        Muxes := 2     
+	   3 Input   12 Bit        Muxes := 4     
+	  10 Input   12 Bit        Muxes := 4     
+	  17 Input   12 Bit        Muxes := 2     
+	  11 Input   12 Bit        Muxes := 7     
+	   9 Input   12 Bit        Muxes := 4     
+	  15 Input   12 Bit        Muxes := 6     
+	  12 Input   12 Bit        Muxes := 5     
+	  18 Input   12 Bit        Muxes := 3     
+	   7 Input   12 Bit        Muxes := 4     
+	  21 Input   12 Bit        Muxes := 2     
+	   4 Input   11 Bit        Muxes := 2     
+	   2 Input   11 Bit        Muxes := 25    
+	  10 Input   11 Bit        Muxes := 1     
+	   5 Input   11 Bit        Muxes := 2     
+	   2 Input    5 Bit        Muxes := 212   
+	   3 Input    4 Bit        Muxes := 3     
+	   2 Input    4 Bit        Muxes := 2     
+	   4 Input    4 Bit        Muxes := 2     
+	   8 Input    3 Bit        Muxes := 1     
+	   5 Input    3 Bit        Muxes := 1     
+	   9 Input    3 Bit        Muxes := 1     
+	   3 Input    2 Bit        Muxes := 2     
+	   5 Input    2 Bit        Muxes := 2     
+	   4 Input    2 Bit        Muxes := 1     
+	   4 Input    1 Bit        Muxes := 1     
+	   3 Input    1 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+
+*** Running vivado
+    with args -log Game_of_Life.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Game_of_Life.tcl
+
+
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source Game_of_Life.tcl -notrace
+Command: synth_design -top Game_of_Life -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 2580
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1116.652 ; gain = 13.633
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'Game_of_Life' [C:/testp/Game_of_Life_top.v:3]
+INFO: [Synth 8-6157] synthesizing module 'debounce_button' [C:/testp/debounce_button.v:1]
+	Parameter INTERVAL bound to: 1000000 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'debounce_button' (1#1) [C:/testp/debounce_button.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Main_machine' [C:/testp/game_of_life_machine.v:9]
+	Parameter SET bound to: 3'b001 
+	Parameter ALG bound to: 3'b010 
+	Parameter STOP bound to: 3'b100 
+INFO: [Synth 8-6157] synthesizing module 'array_transfer' [C:/testp/array_transfer.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'array_transfer' (2#1) [C:/testp/array_transfer.v:3]
+INFO: [Synth 8-6157] synthesizing module 'set_up' [C:/testp/set_up.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'set_up' (3#1) [C:/testp/set_up.v:1]
+INFO: [Synth 8-6157] synthesizing module 'algorithm' [C:/testp/algorithm.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'algorithm' (4#1) [C:/testp/algorithm.v:1]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/testp/game_of_life_machine.v:80]
+INFO: [Synth 8-6155] done synthesizing module 'Main_machine' (5#1) [C:/testp/game_of_life_machine.v:9]
+INFO: [Synth 8-6157] synthesizing module 'ssd_generation_output' [C:/testp/ssd_generation_output.v:5]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/testp/ssd_generation_output.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'ssd_generation_output' (6#1) [C:/testp/ssd_generation_output.v:5]
+INFO: [Synth 8-6157] synthesizing module 'display_controller' [C:/testp/display_controller.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'display_controller' (7#1) [C:/testp/display_controller.v:3]
+INFO: [Synth 8-6157] synthesizing module 'cell_rom' [C:/testp/cell_12_bit_rom.v:5]
+
+*** Running vivado
+    with args -log Game_of_Life.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Game_of_Life.tcl
+
+
+
+****** Vivado v2020.2 (64-bit)
+  **** SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+  **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source Game_of_Life.tcl -notrace
+Command: synth_design -top Game_of_Life -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 11832
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1116.918 ; gain = 12.477
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'Game_of_Life' [C:/testp/Game_of_Life_top.v:3]
+INFO: [Synth 8-6157] synthesizing module 'debounce_button' [C:/testp/debounce_button.v:1]
+	Parameter INTERVAL bound to: 1000000 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'debounce_button' (1#1) [C:/testp/debounce_button.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Main_machine' [C:/testp/game_of_life_machine.v:9]
+	Parameter SET bound to: 3'b001 
+	Parameter ALG bound to: 3'b010 
+	Parameter STOP bound to: 3'b100 
+INFO: [Synth 8-6157] synthesizing module 'array_transfer' [C:/testp/array_transfer.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'array_transfer' (2#1) [C:/testp/array_transfer.v:3]
+INFO: [Synth 8-6157] synthesizing module 'set_up' [C:/testp/set_up.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'set_up' (3#1) [C:/testp/set_up.v:1]
+INFO: [Synth 8-6157] synthesizing module 'algorithm' [C:/testp/algorithm.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'algorithm' (4#1) [C:/testp/algorithm.v:1]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/testp/game_of_life_machine.v:80]
+INFO: [Synth 8-6155] done synthesizing module 'Main_machine' (5#1) [C:/testp/game_of_life_machine.v:9]
+INFO: [Synth 8-6157] synthesizing module 'ssd_generation_output' [C:/testp/ssd_generation_output.v:5]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/testp/ssd_generation_output.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'ssd_generation_output' (6#1) [C:/testp/ssd_generation_output.v:5]
+INFO: [Synth 8-6157] synthesizing module 'display_controller' [C:/testp/display_controller.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'display_controller' (7#1) [C:/testp/display_controller.v:3]
+INFO: [Synth 8-6157] synthesizing module 'cell_rom' [C:/testp/cell_12_bit_rom.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'cell_rom' (8#1) [C:/testp/cell_12_bit_rom.v:5]
+INFO: [Synth 8-6157] synthesizing module 'curr_cell_output' [C:/testp/curr_cell_output.v:1]
+	Parameter H_OFFSET bound to: 224 - type: integer 
+	Parameter V_OFFSET bound to: 35 - type: integer 
+	Parameter CELL_SIZE bound to: 30 - type: integer 
+	Parameter ROW_SIZE bound to: 16 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'curr_cell_output' (9#1) [C:/testp/curr_cell_output.v:1]
+INFO: [Synth 8-6157] synthesizing module 'update_vga' [C:/testp/update_vga.v:1]
+	Parameter BLACK bound to: 12'b000000000000 
+	Parameter WHITE bound to: 12'b111111111111 
+INFO: [Synth 8-6155] done synthesizing module 'update_vga' (10#1) [C:/testp/update_vga.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Game_of_Life' (11#1) [C:/testp/Game_of_Life_top.v:3]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1329.996 ; gain = 225.555
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1329.996 ; gain = 225.555
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1329.996 ; gain = 225.555
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.937 . Memory (MB): peak = 1329.996 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/testp/N4.xdc]
+Finished Parsing XDC File [C:/testp/N4.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/testp/N4.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Game_of_Life_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/Game_of_Life_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 1480.488 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.062 . Memory (MB): peak = 1480.488 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:39 ; elapsed = 00:00:38 . Memory (MB): peak = 1480.488 ; gain = 376.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:39 ; elapsed = 00:00:38 . Memory (MB): peak = 1480.488 ; gain = 376.047
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Main_machine'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0001 |                              000
+                     SET |                             0010 |                              001
+                     ALG |                             0100 |                              010
+                    STOP |                             1000 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'Main_machine'
+WARNING: [Synth 8-327] inferring latch for variable 'anode_reg' [C:/testp/ssd_generation_output.v:28]
+WARNING: [Synth 8-327] inferring latch for variable 'LEDNumber_reg' [C:/testp/ssd_generation_output.v:29]
+WARNING: [Synth 8-327] inferring latch for variable 'color_data_reg' [C:/testp/cell_12_bit_rom.v:26]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:54 ; elapsed = 00:00:54 . Memory (MB): peak = 1480.488 ; gain = 376.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input   32 Bit       Adders := 3     
+	   4 Input   32 Bit       Adders := 15    
+	   5 Input   32 Bit       Adders := 41    
+	   7 Input   32 Bit       Adders := 196   
+	   2 Input   32 Bit       Adders := 10    
+	   2 Input   10 Bit       Adders := 2     
+	   2 Input    4 Bit       Adders := 212   
++---Registers : 
+	              256 Bit    Registers := 4     
+	               10 Bit    Registers := 2     
+	                5 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                1 Bit    Registers := 14    
++---Muxes : 
+	   2 Input  256 Bit        Muxes := 3     
+	   2 Input   32 Bit        Muxes := 2     
+	   2 Input   12 Bit        Muxes := 309   
+	   5 Input   12 Bit        Muxes := 20    
+	   4 Input   12 Bit        Muxes := 23    
+	  13 Input   12 Bit        Muxes := 3     
+	   6 Input   12 Bit        Muxes := 15    
+	   8 Input   12 Bit        Muxes := 11    
+	  14 Input   12 Bit        Muxes := 2     
+	   3 Input   12 Bit        Muxes := 4     
+	  10 Input   12 Bit        Muxes := 4     
+	  17 Input   12 Bit        Muxes := 2     
+	  11 Input   12 Bit        Muxes := 7     
+	   9 Input   12 Bit        Muxes := 4     
+	  15 Input   12 Bit        Muxes := 6     
+	  12 Input   12 Bit        Muxes := 5     
+	  18 Input   12 Bit        Muxes := 3     
+	   7 Input   12 Bit        Muxes := 4     
+	  21 Input   12 Bit        Muxes := 2     
+	   4 Input   11 Bit        Muxes := 2     
+	   2 Input   11 Bit        Muxes := 25    
+	  10 Input   11 Bit        Muxes := 1     
+	   5 Input   11 Bit        Muxes := 2     
+	   2 Input    5 Bit        Muxes := 212   
+	   3 Input    4 Bit        Muxes := 3     
+	   2 Input    4 Bit        Muxes := 2     
+	   4 Input    4 Bit        Muxes := 2     
+	   8 Input    3 Bit        Muxes := 1     
+	   5 Input    3 Bit        Muxes := 1     
+	   9 Input    3 Bit        Muxes := 1     
+	   3 Input    2 Bit        Muxes := 2     
+	   5 Input    2 Bit        Muxes := 2     
+	   4 Input    2 Bit        Muxes := 1     
+	   4 Input    1 Bit        Muxes := 1     
+	   3 Input    1 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:56 ; elapsed = 00:02:00 . Memory (MB): peak = 1480.488 ; gain = 376.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:02:02 ; elapsed = 00:02:06 . Memory (MB): peak = 1480.488 ; gain = 376.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:02:04 ; elapsed = 00:02:08 . Memory (MB): peak = 1480.488 ; gain = 376.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:02:07 ; elapsed = 00:02:11 . Memory (MB): peak = 1480.488 ; gain = 376.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:02:12 ; elapsed = 00:02:16 . Memory (MB): peak = 1480.488 ; gain = 376.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:02:12 ; elapsed = 00:02:16 . Memory (MB): peak = 1480.488 ; gain = 376.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:02:12 ; elapsed = 00:02:16 . Memory (MB): peak = 1480.488 ; gain = 376.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:02:12 ; elapsed = 00:02:16 . Memory (MB): peak = 1480.488 ; gain = 376.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:02:12 ; elapsed = 00:02:17 . Memory (MB): peak = 1480.488 ; gain = 376.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:02:12 ; elapsed = 00:02:17 . Memory (MB): peak = 1480.488 ; gain = 376.047
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     3|
+|2     |CARRY4 |   261|
+|3     |LUT1   |    91|
+|4     |LUT2   |   296|
+|5     |LUT3   |   389|
+|6     |LUT4   |   412|
+|7     |LUT5   |   651|
+|8     |LUT6   |  1493|
+|9     |MUXF7  |   302|
+|10    |MUXF8  |    23|
+|11    |FDCE   |  1047|
+|12    |FDPE   |     5|
+|13    |FDRE   |   191|
+|14    |LDC    |    13|
+|15    |LDP    |     3|
+|16    |IBUF   |    22|
+|17    |OBUF   |    30|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:02:12 ; elapsed = 00:02:17 . Memory (MB): peak = 1480.488 ; gain = 376.047
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 3 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:40 ; elapsed = 00:02:07 . Memory (MB): peak = 1480.488 ; gain = 225.555
+Synthesis Optimization Complete : Time (s): cpu = 00:02:13 ; elapsed = 00:02:18 . Memory (MB): peak = 1480.488 ; gain = 376.047
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.088 . Memory (MB): peak = 1480.488 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 602 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1480.488 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 16 instances were transformed.
+  LDC => LDCE: 13 instances
+  LDP => LDPE: 3 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+41 Infos, 3 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:20 ; elapsed = 00:02:27 . Memory (MB): peak = 1480.488 ; gain = 376.047
+INFO: [Common 17-1381] The checkpoint 'C:/testp/project_1/project_1.runs/synth_1/Game_of_Life.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file Game_of_Life_utilization_synth.rpt -pb Game_of_Life_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Apr 21 20:56:12 2024...
