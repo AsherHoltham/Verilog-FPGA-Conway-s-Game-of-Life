@@ -48,8 +48,8 @@ module display_controller
 		  bright <= 0;
 	end
 
-	assign row = (bright) ? (((vc - 225) % 30)):0;
-	assign col = (bright) ? (((hc - 36) % 30)):0; 
+	assign row = (bright) ? (((vc - 36) % 30)):0;
+	assign col = (bright) ? (((hc - 225) % 30)):0; 
 	
 	assign hSync = (hc < 96) ? 1:0;
 	assign vSync = (vc < 2) ? 1:0;	
