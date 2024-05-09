@@ -36,8 +36,16 @@ module Game_of_Life
 	assign vgaB = rgb[3  : 0];
 	/* ASSIGNMENTS */
 
+	/* BUTTON DEBOUNCE MODULES */
+	debounce_button btnc(.clk(ClkPort), .input_BtnN(BtnC), .BtnN(BtnC_o));
+	debounce_button btnu(.clk(ClkPort), .input_BtnN(BtnU), .BtnN(BtnU_o));
+	debounce_button btnd(.clk(ClkPort), .input_BtnN(BtnD), .BtnN(BtnD_o));
+	debounce_button btnl(.clk(ClkPort), .input_BtnN(BtnL), .BtnN(BtnL_o));
+	debounce_button btnr(.clk(ClkPort), .input_BtnN(BtnR), .BtnN(BtnR_o));
+	/* BUTTON DEBOUNCE MODULES */
+
 	/* MODULES */
-    Main_machine algo_(.clk(ClkPort), .BtnL(BtnL), .BtnR(BtnR), .BtnU(BtnU), .BtnD(BtnD), .BtnC(BtnC), .Sw15(Sw15), .Sw14(Sw14), .Sw13(Sw13), .Sw12(Sw12), .Sw11(Sw11), .Sw10(Sw10), .Sw9(Sw9), .Sw8(Sw8), .Sw7(Sw7), .Sw6(Sw6), .Sw5(Sw5), .Sw4(Sw4), .Sw3(Sw3), .Sw2(Sw2), .Sw1(Sw1), .Sw0(Sw0), .board_o(board), .generation_cnt_o(generation));
+	Main_machine algo_(.clk(ClkPort), .BtnL(BtnL_o), .BtnR(BtnR_o), .BtnU(BtnU_o), .BtnD(BtnD_o), .BtnC(BtnC_o), .Sw15(Sw15), .Sw14(Sw14), .Sw13(Sw13), .Sw12(Sw12), .Sw11(Sw11), .Sw10(Sw10), .Sw9(Sw9), .Sw8(Sw8), .Sw7(Sw7), .Sw6(Sw6), .Sw5(Sw5), .Sw4(Sw4), .Sw3(Sw3), .Sw2(Sw2), .Sw1(Sw1), .Sw0(Sw0), .board_o(board), .generation_cnt_o(generation));
 	ssd_generation_output SSD_(.clk(ClkPort), .generation(generation), .anode(anode), .ssdOut(ssdOut));
 	display_controller dc_(.clk(ClkPort), .hSync(hSync), .vSync(vSync), .bright(bright), .row(cell_row), .col(cell_col), .hc(hc), .vc(vc));
 	cell_rom ROM_(.clk(ClkPort), .row(cell_row), .col(cell_col), .color_data(cell_rgb));

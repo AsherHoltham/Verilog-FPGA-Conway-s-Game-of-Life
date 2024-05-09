@@ -1,0 +1,119 @@
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2020.2 (win64) Build 3064766 Wed Nov 18 09:12:45 MST 2020
+| Date         : Sun Apr 21 20:57:16 2024
+| Host         : GDESK-28 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file Game_of_Life_control_sets_placed.rpt
+| Design       : Game_of_Life
+| Device       : xc7a100t
+-----------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    41 |
+|    Minimum number of control sets                        |    41 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |   221 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    41 |
+| >= 0 to < 4        |    26 |
+| >= 4 to < 6        |     2 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     1 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |    11 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              62 |           24 |
+| No           | No                    | Yes                    |             516 |          310 |
+| No           | Yes                   | No                     |              30 |           26 |
+| Yes          | No                    | No                     |               6 |            6 |
+| Yes          | No                    | Yes                    |             536 |          184 |
+| Yes          | Yes                   | No                     |             109 |           29 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++--------------------------------------+------------------------------------+-------------------------------------+------------------+----------------+--------------+
+|             Clock Signal             |            Enable Signal           |           Set/Reset Signal          | Slice Load Count | Bel Load Count | Bels / Slice |
++--------------------------------------+------------------------------------+-------------------------------------+------------------+----------------+--------------+
+|  dc_/pulse                           |                                    |                                     |                1 |              1 |         1.00 |
+|  ROM_/color_data_reg[4]_i_2_n_0      |                                    | ROM_/color_data_reg[4]_i_3_n_0      |                1 |              1 |         1.00 |
+|  ROM_/color_data_reg[5]_i_2_n_0      |                                    | ROM_/color_data_reg[5]_i_3_n_0      |                1 |              1 |         1.00 |
+|  btnd/BtnD_o                         |                                    | algo_/set_/index_reg[0]_LDC_i_2_n_0 |                1 |              1 |         1.00 |
+|  btnd/BtnD_o                         |                                    | algo_/set_/index_reg[3]_LDC_i_2_n_0 |                1 |              1 |         1.00 |
+|  btnd/BtnD_o                         |                                    | algo_/set_/index_reg[1]_LDC_i_2_n_0 |                1 |              1 |         1.00 |
+|  btnd/BtnD_o                         |                                    | algo_/set_/index_reg[2]_LDC_i_2_n_0 |                1 |              1 |         1.00 |
+|  btnd/BtnD_o                         | algo_/set_/p_1_in                  | algo_/set_/index_reg[3]_LDC_i_1_n_0 |                1 |              1 |         1.00 |
+|  btnd/BtnD_o                         | algo_/set_/p_1_in                  | algo_/set_/index_reg[0]_LDC_i_1_n_0 |                1 |              1 |         1.00 |
+|  btnd/BtnD_o                         | algo_/set_/p_1_in                  | algo_/set_/index_reg[2]_LDC_i_1_n_0 |                1 |              1 |         1.00 |
+|  btnd/BtnD_o                         | algo_/set_/p_1_in                  | algo_/set_/index_reg[1]_LDC_i_1_n_0 |                1 |              1 |         1.00 |
+|  algo_/set_/index_reg[3]_LDC_i_1_n_0 |                                    | algo_/set_/index_reg[3]_LDC_i_2_n_0 |                1 |              1 |         1.00 |
+|  algo_/set_/index_reg[0]_LDC_i_1_n_0 |                                    | algo_/set_/index_reg[0]_LDC_i_2_n_0 |                1 |              1 |         1.00 |
+|  algo_/set_/index_reg[2]_LDC_i_1_n_0 |                                    | algo_/set_/index_reg[2]_LDC_i_2_n_0 |                1 |              1 |         1.00 |
+|  algo_/set_/index_reg[1]_LDC_i_1_n_0 |                                    | algo_/set_/index_reg[1]_LDC_i_2_n_0 |                1 |              1 |         1.00 |
+|  ClkPort_IBUF_BUFG                   | btnd/sampled_BtnN_i_1__1_n_0       |                                     |                1 |              1 |         1.00 |
+|  ClkPort_IBUF_BUFG                   | btnl/sampled_BtnN_i_1__2_n_0       |                                     |                1 |              1 |         1.00 |
+|  ClkPort_IBUF_BUFG                   | btnr/sampled_BtnN_i_1__3_n_0       |                                     |                1 |              1 |         1.00 |
+|  ClkPort_IBUF_BUFG                   | btnu/sampled_BtnN_i_1__0_n_0       |                                     |                1 |              1 |         1.00 |
+|  ClkPort_IBUF_BUFG                   | btnc/sampled_BtnN_i_1_n_0          |                                     |                1 |              1 |         1.00 |
+|  dc_/clk25_reg_n_0                   |                                    |                                     |                1 |              1 |         1.00 |
+|  dc_/clk25_reg_n_0                   | dc_/hc[9]_i_1_n_0                  |                                     |                1 |              1 |         1.00 |
+|  ROM_/color_data_reg[11]_i_2_n_0     |                                    | ROM_/color_data_reg[10]_i_2_n_0     |                2 |              2 |         1.00 |
+|  ROM_/color_data_reg[2]_i_2_n_0      |                                    | ROM_/color_data_reg[2]_i_3_n_0      |                2 |              2 |         1.00 |
+|  ROM_/color_data_reg[11]_i_2_n_0     |                                    | ROM_/color_data_reg[11]_i_3_n_0     |                3 |              3 |         1.00 |
+|  ROM_/color_data_reg[9]_i_2_n_0      |                                    | ROM_/color_data1360_out             |                3 |              3 |         1.00 |
+|  btnr/BtnR_o                         | algo_/FSM_onehot_state[3]_i_1_n_0  | btnl/reset                          |                2 |              4 |         2.00 |
+|  ClkPort_IBUF_BUFG                   |                                    | dc_/bright_reg_0                    |                4 |              4 |         1.00 |
+|  dc_/clk25_reg_n_0                   | dc_/hc[9]_i_1_n_0                  | dc_/vc[9]_i_1_n_0                   |                4 |              9 |         2.25 |
+|  dc_/clk25_reg_n_0                   |                                    | dc_/hc[9]_i_1_n_0                   |                6 |             10 |         1.67 |
+|  internal_clock_counter_reg[25]      | algo_/FSM_onehot_state_reg_n_0_[2] | btnl/reset                          |                4 |             16 |         4.00 |
+|  ClkPort_IBUF_BUFG                   | btnr/cnt[0]_i_1__3_n_0             | btnr/sampled_BtnN_i_1__3_n_0        |                5 |             20 |         4.00 |
+|  ClkPort_IBUF_BUFG                   | btnu/cnt[0]_i_1__0_n_0             | btnu/sampled_BtnN_i_1__0_n_0        |                5 |             20 |         4.00 |
+|  ClkPort_IBUF_BUFG                   | btnc/cnt[0]_i_1_n_0                | btnc/sampled_BtnN_i_1_n_0           |                5 |             20 |         4.00 |
+|  ClkPort_IBUF_BUFG                   | btnd/cnt[0]_i_1__1_n_0             | btnd/sampled_BtnN_i_1__1_n_0        |                5 |             20 |         4.00 |
+|  ClkPort_IBUF_BUFG                   | btnl/cnt[0]_i_1__2_n_0             | btnl/sampled_BtnN_i_1__2_n_0        |                5 |             20 |         4.00 |
+|  ClkPort_IBUF_BUFG                   |                                    |                                     |               22 |             60 |         2.73 |
+|  internal_clock_counter_reg[25]      | algo_/board_o[255]_i_1_n_0         | btnl/reset                          |               75 |            256 |         3.41 |
+|  internal_clock_counter_reg[25]      |                                    | btnl/reset                          |              224 |            256 |         1.14 |
+|  internal_clock_counter_reg__0[17]   |                                    | btnl/reset                          |               82 |            256 |         3.12 |
+|  internal_clock_counter_reg__0[17]   | algo_/state_reg[0]                 | btnl/reset                          |               99 |            256 |         2.59 |
++--------------------------------------+------------------------------------+-------------------------------------+------------------+----------------+--------------+
+
+
